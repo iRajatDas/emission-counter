@@ -1,3 +1,8 @@
+## Development Details
+
+<!-- https://wakatime.com/@RajatDas/projects/waxhoqtsyf?start=2024-12-03&end=2024-12-09 -->
+- Wakatime: [Project Details](https://wakatime.com/@RajatDas/projects/waxhoqtsyf?start=2024-12-03&end=2024-12-09)
+
 ### Project Intro:
 
 The project is an emission counter. It allows users to add emission entries for any business operations and they should be able to see the results in table form and a chart.
