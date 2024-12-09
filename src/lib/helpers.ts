@@ -1,7 +1,6 @@
 import { format } from "date-fns";
 import { FormData } from "./schema/emission.schema";
 
-// Define types for input data and output data
 type EmissionEntry = FormData;
 
 type ChartData = {
@@ -15,7 +14,8 @@ export const prepareChartData = (data: EmissionEntry[]): ChartData[] => {
   const groupedData: Record<string, ChartData> = {};
 
   data.forEach(({ date, scope, emission }) => {
-    const month = format(new Date(date), "MMMM"); // Get full month name
+    // Get full month name
+    const month = format(new Date(date), "MMMM");
 
     if (!groupedData[month]) {
       groupedData[month] = { month, Scope1: 0, Scope2: 0, Scope3: 0 };
@@ -53,8 +53,7 @@ export const prepareChartData = (data: EmissionEntry[]): ChartData[] => {
   );
 };
 
-
-// number format 
+// number format
 export const formatNumber = (num: number): string => {
   return new Intl.NumberFormat("en-IN").format(num);
 };
