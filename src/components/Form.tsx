@@ -74,14 +74,19 @@ const FormSection: FC<FormSectionProps> = ({
       toast.success(
         `Emission ${isUpdateView ? "updated" : "added"} successfully`
       );
+
+      // reset form
+      // not working as expected
+
+      if (!isUpdateView) {
+        // to prevent fallback to initial values on update
+        form.reset();
+      }
+
+      // console.log(form.getValues()); // {}
     } catch (error) {
       console.error(`Error: ${error}`);
     }
-
-    // reset form
-    // form.reset // not working as expected
-    form.reset();
-    // console.log(form.getValues()); // {}
   };
 
   return (
@@ -121,11 +126,11 @@ const FormSection: FC<FormSectionProps> = ({
                     <FormLabel>Emission (kg CO2-e)</FormLabel>
                     <FormControl>
                       <Input
-                      placeholder="eg. 1000.50"
-                      pattern="[0-9]*[.,]?[0-9]*"
-                      inputMode="decimal"
-                      {...field}
-                      value={field.value ?? ""}
+                        placeholder="eg. 1000.50"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        inputMode="decimal"
+                        {...field}
+                        value={field.value ?? ""}
                       />
                     </FormControl>
                     <FormMessage />
